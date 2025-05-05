@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.app {
+  background-color: #121212;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 500px; /* Aumente de 400px para 500px */
+  height: 700px; /* Aumente de 600px para 700px */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Header Styles */
+.header {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #b026ff;
+}
+
+.header-subtitle {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  color: #808080;
+}
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #b026ff;
+  margin-right: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Status Bar */
+.status-bar {
+  background-color: #000;
+  padding: 0.75rem;
+  color: #b026ff;
+  font-weight: 800;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #1a1a1a;
+}
+
+/* Footer */
+.footer {
+  background-color: #000000;
+  padding: 0.75rem;
+  text-align: center;
+  color: #808080;
+  font-size: 0.75rem;
+}
+
+/* Buttons */
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: white;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu-button-primary {
+  background: linear-gradient(to right, #000000, #8a1cff);
+}
+
+.menu-button-primary:hover {
+  background: linear-gradient(to right, #000000, #7a19e6);
+}
+
+.menu-button-secondary {
+  background: linear-gradient(to right, #2a2a2a, #1a1a1a);
+}
+
+.menu-button-secondary:hover {
+  background: linear-gradient(to right, #3b037a, #262626);
+}
+
+.menu-button-icon {
+  margin-right: 0.75rem;
+  color: #b026ff;
+}
+
+.menu-button-content {
+  flex: 1;
+}
+
+.menu-button-title {
+  display: block;
+}
+
+.menu-button-subtitle {
+  font-size: 0.75rem;
+  color: #fff5f5;
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+
+.menu-button-arrow {
+  display: flex;
+  color: #b026ff;
+}
+
+.notification-badge {
+  background-color: #b026ff;
+  color: white;
+  border-radius: 9999px;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Chat Styles */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-input-container {
+  padding: 0.5rem;
+  background-color: #262626;
+  display: flex;
+  align-items: center;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #404040;
+  outline: none;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.chat-input:focus {
+  border-color: #b026ff;
+}
+
+.chat-send-button {
+  margin-left: 0.5rem;
+  background-color: #b026ff;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chat-send-button:disabled {
+  background-color: #404040;
+}
+
+.message-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.message-container.user {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  font-size: 1.5rem;
+}
+
+/* Balão de mensagens do usuário */
+.message-bubble.user {
+    background-color: #a855f7; /* Cor roxa */
+    color: white;
+    padding: 10px 14px;
+    border-radius: 18px 18px 0px 18px;
+    max-width: 75%; /* Aumenta o limite da largura */
+    margin-left: auto; /* Empurra para a direita */
+    margin-right: 8px;
+    margin-top: 8px;
+    display: inline-block;
+    word-wrap: break-word;
+  
+}
+
+/* Balão de mensagens de outros usuários */
+.message-bubble.other {
+  background-color: #262626;
+  color: #ffffff;
+  border-top-left-radius: 0;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  max-width: 70%;
+  text-align: left;
+  margin-right: auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+  white-space: pre-line;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+/* Balão de mensagens do bot */
+.message-bubble.bot {
+  background-color: #262626; /* Cor de fundo */
+  color: #ffffff; /* Cor do texto */
+  border-top-left-radius: 0; /* Bordas arredondadas */
+  border-radius: 0.5rem; /* Bordas arredondadas */
+  padding: 0.4rem 0.8rem; /* Espaçamento interno */
+  max-width: 70%; /* Largura máxima */
+  text-align: left; /* Alinhamento do texto */
+  margin-right: auto; /* Alinhamento do balão */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Sombra para destacar o balão */
+  overflow-wrap: break-word; /* Quebra de palavras */
+  white-space: pre-line; /* Preserva quebras de linha */
+  font-size: 0.875rem; /* Tamanho da fonte */
+  line-height: 1.2; /* Altura da linha */
+}
+
+/* Estilo para mensagens enviadas pelo usuário no Chat da Torcida */
+.user-message {
+  justify-content: flex-end; /* Alinha à direita */
+}
+
+.user-bubble {
+  background-color: #a855f7; /* Cor roxa */
+  color: white;
+  padding: 10px 14px;
+  border-radius: 18px 18px 0px 18px;
+  max-width: 75%; /* Aumenta o limite da largura */
+  margin-left: auto; /* Empurra para a direita */
+  margin-right: 8px;
+  margin-top: 8px;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  text-align: right;
+  margin-top: 0.25rem;
+  opacity: 0.7;
+}
+
+.typing-indicator {
+  color: #808080;
+}
+
+/* Player Card Styles */
+.player-card {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #262626;
+  border-radius: 0.5rem;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.player-avatar {
+  font-size: 1.875rem;
+  margin-right: 0.75rem;
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-name {
+  font-weight: 700;
+  color: #b026ff;
+}
+
+.player-role {
+  font-size: 0.875rem;
+  color: #808080;
+}
+
+.player-stats {
+  display: flex;
+  font-size: 0.75rem;
+  color: #808080;
+  margin-top: 0.25rem;
+}
+
+.player-stats span {
+  margin-right: 0.5rem;
+}
+
+/* Match Card Styles */
+.match-card {
+  background-color: #262626;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.match-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.match-status {
+  font-size: 0.875rem;
+}
+
+.match-details {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  color: hsl(0, 100%, 99%);
+}
+
+.match-stats {
+  font-size: 0.75rem;
+  color: #ffffff;
+  margin-top: 0.5rem;
+}
+
+.match-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+}
+
+.match-button {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  background-color: #404040;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.match-button:hover {
+  background-color: #4d4d4d;
+}
+
+.match-button i {
+  margin-right: 0.25rem;
+  color: #b026ff;
+  transform: scale(1);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.match-completed {
+  background-color: #b026ff;
+}
+
+/* Animação de clique para o botão de Favorito */
+.match-button.match-favorite.clicked i {
+  color: red; /* Ícone do coração fica vermelho */
+  transform: scale(1.2); /* Aumenta o tamanho temporariamente */
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Animação de clique para o botão de Lembrete */
+.match-button.match-reminder.clicked i {
+  color: yellow; /* Ícone do sino fica amarelo */
+  transform: scale(1.2); /* Aumenta o tamanho temporariamente */
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Fan Chat Styles */
+.fan-message {
+  margin-bottom: 0.75rem;
+}
+
+.fan-name {
+  font-weight: 700;
+  color: #b026ff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.bounce {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .app {
+    height: 100vh;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
